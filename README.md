@@ -8,6 +8,7 @@
 ## Installing Dependencies 
 1. Make sure you have Python 3 installed.
 2. Run `python pip install -r requirements.txt` or `python3 -m pip install --requirement requirements.txt` if you're on Linux.
+3. Also make sure you have Firefox installed.
 
 ## Running the script
 1. Open the directory in your preferred terminal.
