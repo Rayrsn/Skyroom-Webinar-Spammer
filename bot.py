@@ -4,8 +4,8 @@ from selenium.webdriver.common.keys import Keys
 import time
 import random
 
-URL = "" # Put your URL here
-texttospam = "" # The text to spam goes here
+URL = "https://www.skyroom.online/ch/TEST/webinar" # Put your URL here
+texttospam = "yes" # The text to spam goes here
 
 
 profile = webdriver.FirefoxProfile()
