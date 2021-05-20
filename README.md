@@ -11,9 +11,10 @@
 3. Also make sure you have Firefox installed.
 
 ## Running the script
-1. Open the directory in your preferred terminal.
-2. Change the URL and texttospam values remember to type it between "".
-3. Run `python bot.py` or `python3 bot.py` if you're on Linux.
+1. Open the script with a text file.
+2. Change the URL and texttospam values remember to type it between the "".
+3. Open the directory in your preferred terminal.
+4. Run `python bot.py` or `python3 bot.py` if you're on Linux.
 
 
 ### I'll make an executable version (.exe) if yall want me to.
