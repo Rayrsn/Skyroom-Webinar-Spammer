@@ -3,13 +3,22 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.keys import Keys
 import time
 import random
+import platform
+import os
+
+x = platform.system()
+if x == "Windows" :
+	os.system('cls')
 
 URL = input('Paste the URL: ') # Put your URL here
-texttospam = input('Text to spam: ') # The text to spam goes here
-IFTEXT = input('Enable Textspam: Y/N')
-IFHAND = input('Enable Handspam: Y/N')
-IFNAME = input('Enable Namespam: Y/N')
-
+IFTEXT = input('Enable Textspam Y/N: ')
+if IFTEXT == "Y" or IFTEXT == "y":
+	texttospam = input('Text to spam: ') # The text to spam goes here
+IFHAND = input('Enable Handspam Y/N: ')
+CUSTOMNAME = input("Enable Custom Name Y/N (Don't enable with namespam cus it's pointless): ")
+if CUSTOMNAME == "Y" or CUSTOMNAME == "y":
+	LENAME = input('Type your name: ')
+IFNAME = input('Enable Namespam Y/N: ')
 
 profile = webdriver.FirefoxProfile()
 profile.set_preference("media.volume_scale", "0.0")
@@ -27,6 +36,16 @@ time.sleep(1)
 cum2 = driver.find_element_by_xpath('/html/body/div[5]/div[3]/div[2]/button')
 cum2.click()
 time.sleep(1)
+
+# le script
+driver.execute_script("window.localStorage.setItem('nickname',"+"'"+'"'+LENAME+'"'+"'"");")
+time.sleep(1)
+driver.refresh()
+time.sleep(1)
+cum = driver.find_element_by_xpath('//*[@id="btn_guest"]')
+cum.click()
+time.sleep(3)
+
 cum3 = driver.find_element_by_xpath('//*[@id="app_menu"]/div/button')
 cum3.click()
 time.sleep(1)
@@ -37,6 +56,7 @@ time.sleep(1)
 def changename():
 	if IFNAME == "Y" or IFNAME == "y":
 		try:
+			print('Executing Name Spam')
 			name = ['gay','balls','sex','dababy','less gooo','cum'] # List of names to change
 			name2 = random.choice(name)
 			cum3 = driver.find_element_by_xpath('//*[@id="app_menu"]/div/button')
@@ -57,6 +77,7 @@ def changename():
 
 def textspam():
 	if IFTEXT == "Y" or IFTEXT == "y":
+		print('Executing Text Spam')
 		#name = ['gay','balls','sex','dababy','less gooo','cum'] NOT USED
 		name2 = texttospam
 		cum8 = driver.find_element_by_xpath('//*[@id="sidebar"]/div[4]/div[2]/div/div[2]/div[3]/div[1]')
@@ -65,6 +86,7 @@ def textspam():
 
 def handspam():
 	if IFHAND == "Y" or IFHAND == "y":
+		print('Executing Hand Spam')
 		cum9 = driver.find_element_by_xpath('//*[@id="toolbar"]/button[7]')
 		cum9.click()
 
