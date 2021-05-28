@@ -10,6 +10,7 @@ x = platform.system()
 if x == "Windows" :
 	os.system('cls')
 
+LENAME = ""
 URL = input('Paste the URL: ') # Put your URL here
 IFTEXT = input('Enable Textspam Y/N: ')
 if IFTEXT == "Y" or IFTEXT == "y":
@@ -19,6 +20,13 @@ CUSTOMNAME = input("Enable Custom Name Y/N (Don't enable with namespam cus it's 
 if CUSTOMNAME == "Y" or CUSTOMNAME == "y":
 	LENAME = input('Type your name: ')
 IFNAME = input('Enable Namespam Y/N: ')
+print('')
+print('Trying to launch Firefox...')
+time.sleep(10)
+print('Firefox Launched.')
+print('Please Wait...')
+print('')
+
 
 profile = webdriver.FirefoxProfile()
 profile.set_preference("media.volume_scale", "0.0")
@@ -27,6 +35,7 @@ driver.get(URL)
 wait = WebDriverWait(driver, 600)
 
 # LOGIN
+time.sleep(1)
 cum = driver.find_element_by_xpath('//*[@id="btn_guest"]')
 cum.click()
 time.sleep(5)
@@ -38,13 +47,14 @@ cum2.click()
 time.sleep(1)
 
 # le script
-driver.execute_script("window.localStorage.setItem('nickname',"+"'"+'"'+LENAME+'"'+"'"");")
-time.sleep(1)
-driver.refresh()
-time.sleep(1)
-cum = driver.find_element_by_xpath('//*[@id="btn_guest"]')
-cum.click()
-time.sleep(3)
+if LENAME != "":
+	driver.execute_script("window.localStorage.setItem('nickname',"+"'"+'"'+LENAME+'"'+"'"");")
+	time.sleep(1)
+	driver.refresh()
+	time.sleep(1)
+	cum = driver.find_element_by_xpath('//*[@id="btn_guest"]')
+	cum.click()
+	time.sleep(3)
 
 cum3 = driver.find_element_by_xpath('//*[@id="app_menu"]/div/button')
 cum3.click()
